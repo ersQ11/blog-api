@@ -1,3 +1,3 @@
 # blog-api
 
-![Blog API entity-relationship diagram](docs/erd.png)
+![Blog API entity-relationship diagram](docs/erd_blog_api.png)

@@ -12,7 +12,7 @@ class Category(models.Model):
     name = models.CharField(unique=True, max_length=MAX_CATEGORY_NAME_LENGTH)
     slug = models.SlugField(unique=True, max_length=SLUG_MAX_LENGTH)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
 
@@ -20,7 +20,7 @@ class Tag(models.Model):
     name = models.CharField(unique=True, max_length=MAX_TAG_NAME_LENGTH)
     slug = models.SlugField(unique=True, max_length=SLUG_MAX_LENGTH)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
 
@@ -46,7 +46,7 @@ class Post(models.Model):
 
     tags = models.ManyToManyField(Tag, blank=True)
 
-    status = models.TextField(
+    status = models.CharField(
         choices=Status.choices,
         default=Status.DRAFT,
         max_length=STATUS_MAX_LENGTH,
@@ -56,7 +56,7 @@ class Post(models.Model):
 
     updated_at = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.title
 
 
@@ -69,5 +69,5 @@ class Comment(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"Comment by {self.author} on post: {self.post}"
